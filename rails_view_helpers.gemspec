@@ -7,13 +7,12 @@ require "rails_view_helpers/version"
 Gem::Specification.new do |s|
   s.name        = "rails_view_helpers"
   s.version     = RailsViewHelpers::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RailsViewHelpers."
-  s.description = "TODO: Description of RailsViewHelpers."
+  s.authors     = ["Steve Downey"]
+  s.email       = ["steve.downtown@gmail.com"]
+  s.homepage    = "https://github.com/stevedowney/rails_view_helpers"
+  s.summary     = "Convenience methods for Rails views"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 3.2.13"
   s.add_dependency "jquery-rails"
@@ -31,6 +30,7 @@ Gem::Specification.new do |s|
   end
 
   if ENV['ENGINE_DEVELOPER'] == 'true'
+    s.add_development_dependency 'haml'
     s.add_development_dependency 'better_errors'
     s.add_development_dependency 'binding_of_caller'
     s.add_development_dependency "redcarpet"

@@ -1,3 +1,3 @@
-= RailsViewHelpers
+# RailsViewHelpers
 
-This project rocks and uses MIT-LICENSE.
+[API documentation](http://rubydoc.info/gems/rails_view_helpers/frames/file/README.md)
