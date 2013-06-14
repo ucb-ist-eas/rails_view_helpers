@@ -1,6 +1,5 @@
 # TODO
 
-* js_void
 * replace_element
 
 ## Other
