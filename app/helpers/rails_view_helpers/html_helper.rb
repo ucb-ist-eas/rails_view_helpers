@@ -8,6 +8,8 @@ module RailsViewHelpers
     #  body_tag()  #=> <body data-action='index' data-controller='home'>
     #
     #  body_tag(id: 'my-id', class: 'my-class')  #=> <body class="my-class" data-action="index" data-controller="home" id="my-id">
+    # @param options [Hash] become attributes of the BODY tag
+    # @return [String]
     def body_tag(options={}, &block)
       options = canonicalize_options(options)
       options.delete(:class) if options[:class].blank?
@@ -38,6 +40,11 @@ module RailsViewHelpers
       end
     end
     
+    # Same as +bln+ but wrapped in a TD and centered (w/rail_view_helper.css)
+    #
+    # @example
+    #   td_bln(true)  #=> <td class="c">&#10004;</td>
+    # @return [String]
     def td_bln(*args)
       options = canonicalize_options(args.extract_options!)
       options = ensure_class(options, 'c')
