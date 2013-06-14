@@ -44,20 +44,6 @@ describe RailsViewHelpers::HtmlHelper do
     end
   end
   
-  describe '#td_bln' do
-    def td_bln(*args); helper.td_bln(*args); end
-    
-    it "true" do
-      html = td_bln(true, 'x')
-      Capybara.string(html).find('td.c', text: 'x')
-    end
-    
-    it "options" do
-      html = td_bln(true, 'y', id: 'my-id', class: 'my-class')
-      Capybara.string(html).find('td.c.my-class[id="my-id"]', text: 'y')
-    end
-  end
-  
   describe '#nbsp' do
     it "returns &nbsp;" do
       nbsp.should == '&nbsp;'
@@ -72,4 +58,41 @@ describe RailsViewHelpers::HtmlHelper do
     end
   end
   
+  describe '#td_bln' do
+    def td_bln(*args); helper.td_bln(*args); end
+    
+    it "true" do
+      html = td_bln(true, 'x')
+      Capybara.string(html).find('td.c', text: 'x')
+    end
+    
+    it "options" do
+      html = td_bln(true, 'y', id: 'my-id', class: 'my-class')
+      Capybara.string(html).find('td.c.my-class[id="my-id"]', text: 'y')
+    end
+  end
+  
+  describe '#th_actions' do
+    def th_actions(*args); helper.th_actions(*args); end
+    
+    it "default" do
+      html = th_actions
+      Capybara.string(html).find('th.c[colspan="1"]', text: 'Actions')
+    end
+    
+    it "change colspan" do
+      html = th_actions(2)
+      Capybara.string(html).find('th.c[colspan="2"]', text: 'Actions')
+    end
+    
+    it "change text" do
+      html = th_actions(1, 'Verbs')
+      Capybara.string(html).find('th.c[colspan="1"]', text: 'Verbs')
+    end
+
+    it "different class, id" do
+      html = th_actions(class: 'foo', id: 'my-id')
+      Capybara.string(html).find('th.foo#my-id', text: 'Actions')
+    end
+  end
 end

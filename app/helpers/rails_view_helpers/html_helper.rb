@@ -52,6 +52,17 @@ module RailsViewHelpers
       content_tag(:td, bln(*args), options)
     end
     
+    
+    def th_actions(*args)
+      options = canonicalize_options(args.extract_options!)
+      colspan = args.shift || 1
+      text = args.shift || 'Actions'
+      options[:colspan] = colspan
+      options[:class] = 'c' if options[:class].empty?
+      
+      content_tag(:th, text, options)
+    end
+
     # Returns one or more non-breaking spaces (&nbsp;) marked +html_safe+.
     #
     # @example
