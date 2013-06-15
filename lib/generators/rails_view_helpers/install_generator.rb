@@ -11,6 +11,7 @@ module RailsViewHelpers
       
       def install
         directory 'app/assets'
+        directory 'config'
       end
 
     end
