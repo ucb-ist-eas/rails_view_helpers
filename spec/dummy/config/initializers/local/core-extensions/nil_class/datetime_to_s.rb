@@ -17,6 +17,6 @@ class NilClass
   private
   
   def known_formats
-    @known_formats ||= Date::DATE_FORMATS.keys + Time::DATE_FORMATS.keys
+    Date::DATE_FORMATS.keys.dup + Time::DATE_FORMATS.keys.dup
   end
 end

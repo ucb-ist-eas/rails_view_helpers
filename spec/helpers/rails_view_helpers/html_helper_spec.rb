@@ -5,7 +5,7 @@ describe RailsViewHelpers::HtmlHelper do
   
   describe '#body_tag' do
     it "puts controller and action in body" do
-      helper.stub(controller: mock('controller', controller_name: 'cn', action_name: 'an'))
+      helper.stub(controller: double('controller', controller_name: 'cn', action_name: 'an'))
       html = helper.body_tag() { 'content' }
 
       Capybara.string(html).find('body', text: 'content').tap do |body|
@@ -15,7 +15,7 @@ describe RailsViewHelpers::HtmlHelper do
     end
 
     it "with options" do
-      helper.stub(controller: mock('controller', controller_name: 'cn', action_name: 'an'))
+      helper.stub(controller: double('controller', controller_name: 'cn', action_name: 'an'))
       html = helper.body_tag(id: 'my-id', class: 'my-class', data: {my: 'my-data'}) { 'content' }
 
       Capybara.string(html).find('body.my-class#my-id', text: 'content').tap do |body|
